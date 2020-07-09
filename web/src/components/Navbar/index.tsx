@@ -1,10 +1,23 @@
 import React from 'react'
-import { WrapperNav, MainTitle } from './styles';
+import { NavWrapper, TitleMain, Tag } from './styles';
+import { GetCategoriesPayloadInterface } from '../../store/content/posts/types';
 
-export default function NavbarComponent() {
+interface NavbarInterface {
+    categories: [GetCategoriesPayloadInterface]
+}
+
+export default function NavbarComponent({ categories }: NavbarInterface) {
     return (
-        <WrapperNav>
-            <MainTitle>Postfinder</MainTitle>
-        </WrapperNav>
+        <NavWrapper>
+            <TitleMain>Postfinder</TitleMain>
+            {
+                categories !== undefined &&
+                    categories.map((el, i) => 
+                        <>
+                            <Tag>{el.name}</Tag>
+                        </>
+                    )
+            }
+        </NavWrapper>
     )
 }
