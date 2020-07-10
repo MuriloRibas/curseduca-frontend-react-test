@@ -6,11 +6,19 @@ export const GET_CATEGORIES = '@posts/GET_CATEGORIES'
 export const GET_CATEGORIES_SUCCESS = '@posts/GET_CATEGORIES_SUCCESS'
 export const GET_CATEGORIES_FAILURE = '@posts/GET_CATEGORIES_FAILURE'
 
+export const REQUEST_LOGIN = '@posts/REQUEST_LOGIN'
+export const REQUEST_LOGIN_SUCCESS = '@posts/REQUEST_LOGIN_SUCCESS'
+export const REQUEST_LOGIN_FAILURE = '@posts/REQUEST_LOGIN_FAILURE'
+
+export const LOADING = 'LOADING'
+
 export interface UseSelectorPostsInterface {
     PostsReducer: {
         posts: [GetPostsPayloadInterface]
         categories: [GetCategoriesPayloadInterface]
+        access_token: string
         hasErr: boolean
+        loading: boolean
         err?: ''
     }
 }
@@ -18,7 +26,9 @@ export interface UseSelectorPostsInterface {
 export interface InitialStateInterface {
     posts: [GetPostsPayloadInterface]
     categories: [GetCategoriesPayloadInterface]
+    access_token: string
     hasErr: boolean
+    loading: boolean
     err?: ''
 }
 
@@ -35,7 +45,6 @@ export interface GetCategoriesPayloadInterface {
     id: number
     name: string
 }
-
 
 export interface GetPostsSuccessInterface {
     type: typeof GET_POSTS_SUCCESS,
@@ -55,4 +64,16 @@ export interface GetCategoriesFailureInterface {
     err?: string
 }
 
-export type PostsActionTypes = GetPostsSuccessInterface | GetPostsFailureInterface | GetCategoriesSuccessInterface | GetCategoriesFailureInterface
+export interface RequestLoginSuccessInterface {
+    type: typeof REQUEST_LOGIN_SUCCESS,
+    access_token: string
+}
+export interface RequestLoginFailureInterface {
+    type: typeof REQUEST_LOGIN_FAILURE,
+    err?: string
+}
+export interface LoadingInterface {
+    type: typeof LOADING
+}
+
+export type PostsActionTypes = LoadingInterface | GetPostsSuccessInterface | GetPostsFailureInterface | GetCategoriesSuccessInterface | GetCategoriesFailureInterface | RequestLoginSuccessInterface | RequestLoginFailureInterface

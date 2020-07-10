@@ -5,16 +5,20 @@ import LandingPage from './pages/Landing/index';
 import { ThemeProvider } from 'styled-components';
 import theme from './configs/styles/globalStyle/theme';
 import { GlobalStyle } from './configs/styles/globalStyle/index';
-import {initStore} from './store/index';
+import RouterComponent from './pages/Router/index';
+import { PersistGate } from 'redux-persist/integration/react'
+import { initStore, persistor } from './store';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={initStore}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle/>
-        <LandingPage />
-      </ThemeProvider>
+      <PersistGate loading={null} persistor={persistor}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle/>
+          <RouterComponent/>
+        </ThemeProvider>
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
