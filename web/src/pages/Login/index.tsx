@@ -5,7 +5,7 @@ import { LoginWrapper, LoginForm, LoginLabel, LoginInput, LoginTitle, LoginBtn }
 import { requestLogin } from '../../store/content/posts/actions';
 import { InitialStateInterface } from '../../store/content/posts/types';
 import { LoadingStyledComponent } from '../../components/Loading/styles';
-import { ErrorMessageStyledComponent } from '../../components/ErrorMessage/styles';
+import MessageComponent from '../../components/Message/styles';
 
 export default function LoginPage() {
     const postsStoreTyped: TypedUseSelectorHook<InitialStateInterface> = useSelector;
@@ -32,9 +32,11 @@ export default function LoginPage() {
 
     return (
         <LoginWrapper>
+
             { postsStore.access_token !== "" && <Redirect to="/landing"/> }
             { postsStore.loading && <LoadingStyledComponent/> }
-            { postsStore.hasErr && <ErrorMessageStyledComponent>Email ou senha incorretos.</ErrorMessageStyledComponent>}
+            { postsStore.hasErr && <MessageComponent type="error">Email ou senha incorretos.</MessageComponent> }
+
             <LoginForm method="POST">
                 <LoginTitle>Login</LoginTitle>
                 <LoginLabel htmlFor="email">Email</LoginLabel>

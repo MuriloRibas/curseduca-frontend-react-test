@@ -11,6 +11,10 @@ export const TitleMain = styled.h1`
     color: ${props => props.theme.textPrimary};
     text-align: center;
     margin: 15px 0px;
+    & > * {
+        color: ${props => props.theme.textPrimary};
+        text-decoration: none;
+    }
 `
 
 export const Tag = styled.button`

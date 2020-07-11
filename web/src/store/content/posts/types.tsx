@@ -6,11 +6,17 @@ export const GET_CATEGORIES = '@posts/GET_CATEGORIES'
 export const GET_CATEGORIES_SUCCESS = '@posts/GET_CATEGORIES_SUCCESS'
 export const GET_CATEGORIES_FAILURE = '@posts/GET_CATEGORIES_FAILURE'
 
+export const CREATE_POST = '@posts/CREATE_POST'
+export const CREATE_POST_SUCCESS = '@posts/CREATE_POST_SUCCESS'
+export const CREATE_POST_FAILURE = '@posts/CREATE_POST_FAILURE'
+
 export const REQUEST_LOGIN = '@posts/REQUEST_LOGIN'
 export const REQUEST_LOGIN_SUCCESS = '@posts/REQUEST_LOGIN_SUCCESS'
 export const REQUEST_LOGIN_FAILURE = '@posts/REQUEST_LOGIN_FAILURE'
 
 export const LOADING = 'LOADING'
+export const LOGOUT = 'LOGOUT'
+export const SELECT_FILTER = 'SELECT_FILTER'
 
 export interface UseSelectorPostsInterface {
     PostsReducer: {
@@ -18,7 +24,9 @@ export interface UseSelectorPostsInterface {
         categories: [GetCategoriesPayloadInterface]
         access_token: string
         hasErr: boolean
+        success: boolean
         loading: boolean
+        filter: string
         err?: ''
     }
 }
@@ -28,7 +36,9 @@ export interface InitialStateInterface {
     categories: [GetCategoriesPayloadInterface]
     access_token: string
     hasErr: boolean
+    success: boolean
     loading: boolean
+    filter: string
     err?: ''
 }
 
@@ -44,6 +54,13 @@ export interface GetPostsPayloadInterface {
 export interface GetCategoriesPayloadInterface {
     id: number
     name: string
+}
+
+export interface CreateNewPostPayloadInterface {
+    id: number
+    id_category: number
+    text: string
+    title: string
 }
 
 export interface GetPostsSuccessInterface {
@@ -75,5 +92,19 @@ export interface RequestLoginFailureInterface {
 export interface LoadingInterface {
     type: typeof LOADING
 }
-
-export type PostsActionTypes = LoadingInterface | GetPostsSuccessInterface | GetPostsFailureInterface | GetCategoriesSuccessInterface | GetCategoriesFailureInterface | RequestLoginSuccessInterface | RequestLoginFailureInterface
+export interface LogoutInterface {
+    type: typeof LOGOUT
+}
+export interface CreateNewPostSuccessInterface {
+    type: typeof CREATE_POST_SUCCESS,
+    payload: CreateNewPostPayloadInterface
+}
+export interface CreateNewPostFailureInterface {
+    type: typeof CREATE_POST_FAILURE,
+    err?: string
+}
+export interface SelectFilterInterface {
+    type: typeof SELECT_FILTER,
+    filter: string
+}
+export type PostsActionTypes = LoadingInterface | LogoutInterface |GetPostsSuccessInterface | GetPostsFailureInterface | GetCategoriesSuccessInterface | GetCategoriesFailureInterface | RequestLoginSuccessInterface | RequestLoginFailureInterface | CreateNewPostSuccessInterface | CreateNewPostFailureInterface | SelectFilterInterface

@@ -12,6 +12,11 @@ export const PostWrapper = styled.div`
     box-shadow: 0px 10px 50px 4px black;
 `
 
+export const PostCategory = styled.i`
+    color: ${props => props.theme.secondary};
+    font-size: 12px;
+`
+
 export const PostTitle = styled.h1 `
     font-size: 18px;
     font-weight: bold;

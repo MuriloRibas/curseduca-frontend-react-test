@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import NavbarComponent from '../../components/Navbar/index';
-import { getPosts, getCategories } from '../../store/content/posts/actions';
+import { getPosts, getCategories, selectFilter } from '../../store/content/posts/actions';
 import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
 import { InitialStateInterface } from '../../store/content/posts/types';
 import PostsComponent from '../../components/Posts';
@@ -11,6 +11,8 @@ export default function LandingPage() {
 
     const dispatch = useDispatch()
     
+    const selectCategory = (category: string) => dispatch(selectFilter(category))  
+
     useEffect(() => {
         dispatch(getCategories(postsStore.access_token))
         dispatch(getPosts(postsStore.access_token))
@@ -24,9 +26,11 @@ export default function LandingPage() {
         <>
            <NavbarComponent
                 categories={postsStore.categories}
+                onClickCategory={selectCategory}
            />
            <PostsComponent
                 posts={postsStore.posts}
+                filter={postsStore.filter}
            />
         </>
     )
