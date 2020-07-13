@@ -3,7 +3,12 @@ import NavbarComponent from '../../components/Navbar/index';
 import { getPosts, getCategories, selectFilter } from '../../store/content/posts/actions';
 import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
 import { InitialStateInterface } from '../../store/content/posts/types';
+import { faPlusSquare } from '@fortawesome/free-regular-svg-icons';
+
 import PostsComponent from '../../components/Posts';
+import ButtonFloat from '../../components/ButtonFloat';
+import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export default function LandingPage() {
     const postsStoreTyped: TypedUseSelectorHook<InitialStateInterface> = useSelector;
@@ -11,7 +16,9 @@ export default function LandingPage() {
 
     const dispatch = useDispatch()
     
-    const selectCategory = (category: string) => dispatch(selectFilter(category))  
+    const selectCategory = (category: string) => dispatch(selectFilter(category)) 
+
+    const redirect = (path: string) => <Redirect to={path} />
 
     useEffect(() => {
         dispatch(getCategories(postsStore.access_token))
@@ -27,11 +34,15 @@ export default function LandingPage() {
            <NavbarComponent
                 categories={postsStore.categories}
                 onClickCategory={selectCategory}
+                withCategories
            />
            <PostsComponent
                 posts={postsStore.posts}
                 filter={postsStore.filter}
            />
+           <Link to="/landing/create">
+                <ButtonFloat icon={faPlusSquare} /> 
+           </Link>
         </>
     )
 }

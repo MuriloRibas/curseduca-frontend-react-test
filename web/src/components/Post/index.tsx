@@ -22,12 +22,12 @@ export default function PostComponent({ infos }: PostComponentInterface) {
                 return 'Conteúdos'
         } 
     }
-
+    const regDate = /([0-9, -]{10})+/g
     return (
         <PostWrapper>
             <PostDate>
                 <FontAwesomeIcon icon={faCalendarAlt} size="2x"/>
-                <span>{infos.date}</span>
+                <span>{infos.date?.match(regDate)}</span>
             </PostDate>
             <PostCategory>{ selectCategory(infos.id_category) }</PostCategory>
             <PostTitle>{infos.title}</PostTitle>

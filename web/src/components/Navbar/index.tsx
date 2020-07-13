@@ -6,22 +6,28 @@ import { Link } from 'react-router-dom';
 
 interface NavbarInterface {
     categories: [GetCategoriesPayloadInterface]
-    onClickCategory: (category: string) => (dispatch: any, getState: any) => any
+    onClickCategory: (category: string) => {}
+    withCategories?: boolean
 }
 
-export default function NavbarComponent({ categories, onClickCategory }: NavbarInterface) {
+export default function NavbarComponent({ categories, onClickCategory, withCategories }: NavbarInterface) {
 
     return (
         <NavWrapper>
             <TitleMain><Link to="/landing">Postfinder</Link></TitleMain>
-            <Tag onClick={() => onClickCategory('Todos')}>Todas</Tag>
             {
-                categories !== undefined &&
-                    categories.map((el, i) => 
-                        <>
-                            <Tag onClick={() => onClickCategory(el.name)}>{el.name}</Tag>
-                        </>
-                    )
+                withCategories !== undefined && withCategories !== false &&
+                    <>
+                        <Tag onClick={() => onClickCategory('Todos')}>Todos</Tag>
+
+                        {
+                            categories.map((el, i) => 
+                                <>
+                                    <Tag onClick={() => onClickCategory(el.name)}>{el.name}</Tag>
+                                </>
+                            )
+                        }
+                    </>
             }
         </NavWrapper>
     )

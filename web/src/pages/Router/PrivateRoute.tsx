@@ -1,19 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, Redirect, RouteProps } from 'react-router-dom';
 
 interface PrivateRouteInterface extends RouteProps {
     component: any
-    hasToken: boolean
+    token: string
 }
 
 export default function PrivateRoute(props: PrivateRouteInterface) {
-    const { component: Component, hasToken, ...rest } = props;
+    const { component: Component, token, ...rest } = props;
 
     return (
       <Route
         {...rest}
         render={(routeProps) =>
-          hasToken ? (
+          token !== '' ? (
             <Component {...routeProps}/>
           ) : (
             <Redirect

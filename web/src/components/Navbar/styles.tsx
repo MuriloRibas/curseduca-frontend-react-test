@@ -24,7 +24,7 @@ export const Tag = styled.button`
     background-color: ${props => props.theme.primary};
     border-radius: 15px;
     padding: 5px;
-    box-shadow: 0px 2px 10px 2px black;
+    box-shadow: 0px 0px 10px 0px black;
     margin: 5px;
 
     &:hover {

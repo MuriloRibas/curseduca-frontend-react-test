@@ -48,7 +48,7 @@ export interface GetPostsPayloadInterface {
     text: string
     id_category: number
     id_user: number
-    date: string
+    date?: string
 }
 
 export interface GetCategoriesPayloadInterface {

@@ -79,10 +79,10 @@ export const getCategories = (token: string) => {
     }
 }
 
-export const createNewPost = (title: string, category: number, content: string, token: string) => {
+export const createNewPost = (title: string, id_category: number, text: string, token: string, date?: Date | Date[] | undefined) => {
     return function(dispatch: any, getState: any) {
         dispatch({ type: LOADING })
-        return requester('posts', 'POST', token, { title, category, content })
+        return requester( 'posts', 'POST', token, date !== undefined ? { title, id_category, text, date } : { title, id_category, text } )
             .then(res => 
                 dispatch({
                     type: CREATE_POST_SUCCESS,

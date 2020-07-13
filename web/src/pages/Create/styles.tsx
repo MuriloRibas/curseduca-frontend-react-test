@@ -26,3 +26,13 @@ export const CreateSelect = styled.select`
     color: ${props => props.theme.textSecondary};
 
 `
+
+export const CreateQuestion = styled.span`
+    color: ${props => props.theme.primary};
+    font-size: 16px;
+    margin-left: 25px;
+    &:hover {
+        cursor: pointer;
+        color: grey;
+    }
+`

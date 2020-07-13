@@ -25,6 +25,10 @@ export const LoginForm = styled.form `
     padding: 25px 50px;
     display: flex;
     flex-direction: column;
+
+    @media(min-width: 850px) {
+        width: 40%;
+    }
 `;
 
 export const LoginLabel = styled.label`

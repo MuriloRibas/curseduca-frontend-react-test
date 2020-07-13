@@ -8,8 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     body {
         padding: 0;
         margin: 0;
-        overflow-x: auto;
+        overflow-x: hidden;
         /* font-family: 'Nova Mono', monospace; */
+        font-family: 'Roboto Slab', serif;
     }
     * {
         padding: 0;

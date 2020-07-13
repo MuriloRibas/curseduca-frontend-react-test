@@ -1,8 +1,8 @@
-import React, { useState, MouseEvent } from 'react'
+import React, { useState, useEffect, MouseEvent } from 'react'
 import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux';
 import { Redirect } from 'react-router'
 import { LoginWrapper, LoginForm, LoginLabel, LoginInput, LoginTitle, LoginBtn } from './styles';
-import { requestLogin } from '../../store/content/posts/actions';
+import { requestLogin, logout } from '../../store/content/posts/actions';
 import { InitialStateInterface } from '../../store/content/posts/types';
 import { LoadingStyledComponent } from '../../components/Loading/styles';
 import MessageComponent from '../../components/Message/styles';
@@ -29,6 +29,12 @@ export default function LoginPage() {
         ...formInputs,
         [e.currentTarget.name]: e.currentTarget.value
     }) 
+
+    useEffect(() => {
+        if (postsStore.access_token !== '') {
+            dispatch(logout())
+        }
+    }, [])
 
     return (
         <LoginWrapper>
