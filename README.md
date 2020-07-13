@@ -81,3 +81,7 @@ Para rodar a API localmente, siga as instruções abaixo:
 
 ## Como entrego meu teste?
 Envie um email [vagas@curseduca.com](vagas@curseduca.com) com o link para seu repositório
+
+
+## Execução
+Basta: clonar o repositório; Instalar as dependências do diretório raiz e de dentro da pasta web; Executar o script `npm run server`; E iniciar a aplicação com `npm start`
