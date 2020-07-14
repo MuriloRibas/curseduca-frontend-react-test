@@ -1,38 +1,44 @@
 {
-    "posts": [
-        {
-            "id": 1,
-            "title": "Minha primeira postagem",
-            "text": "Essa é a minha <b>primeira postagem</b>!",
-            "id_category": 3,
-            "id_user": 2,
-            "date": "2020-07-07 14:00:00"
-        },
-        {
-            "id": 2,
-            "title": "Meu primeiro artigo!",
-            "text": "<p>Meu primeiro artigo está demais!</p>",
-            "id_category": 3,
-            "id_user": 1,
-            "date": "2020-10-01 08:30:00"
-        }
-    ],
-    "categories": [
-        {
-            "id": 1,
-            "name": "Artigos"
-        },
-        {
-            "id": 2,
-            "name": "Pensamentos"
-        },
-        {
-            "id": 3,
-            "name": "Avisos"
-        },
-        {
-            "id": 4,
-            "name": "Conteúdos"
-        }
-    ]
+  "posts": [
+    {
+      "id": 1,
+      "title": "Minha primeira postagem",
+      "text": "Essa é a minha <b>primeira postagem</b>!",
+      "id_category": 3,
+      "id_user": 2,
+      "date": "2020-07-07 14:00:00"
+    },
+    {
+      "id": 2,
+      "title": "Meu primeiro artigo!",
+      "text": "<p>Meu primeiro artigo está demais!</p>",
+      "id_category": 3,
+      "id_user": 1,
+      "date": "2020-10-01 08:30:00"
+    },
+    {
+      "title": "teste",
+      "id_category": 0,
+      "text": "teste!",
+      "id": 3
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Artigos"
+    },
+    {
+      "id": 2,
+      "name": "Pensamentos"
+    },
+    {
+      "id": 3,
+      "name": "Avisos"
+    },
+    {
+      "id": 4,
+      "name": "Conteúdos"
+    }
+  ]
 }
