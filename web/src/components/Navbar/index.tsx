@@ -14,7 +14,7 @@ export default function NavbarComponent({ categories, onClickCategory, withCateg
 
     return (
         <NavWrapper>
-            <TitleMain><Link to="/landing">Postfinder</Link></TitleMain>
+            <TitleMain><Link to="/">Postfinder</Link></TitleMain>
             {
                 withCategories !== undefined && withCategories !== false &&
                     <>

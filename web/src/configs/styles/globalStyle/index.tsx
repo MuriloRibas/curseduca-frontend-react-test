@@ -9,12 +9,14 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         margin: 0;
         overflow-x: hidden;
+
         /* font-family: 'Nova Mono', monospace; */
         font-family: 'Roboto Slab', serif;
     }
     * {
         padding: 0;
         margin: 0;
+        scroll-behavior: smooth;
         /* font-family: 'Nova Mono', monospace; */
         transition: background-color 0.25s;   
     }

@@ -39,7 +39,7 @@ export default function LoginPage() {
     return (
         <LoginWrapper>
 
-            { postsStore.access_token !== "" && <Redirect to="/landing"/> }
+            { postsStore.access_token !== "" && <Redirect to="/"/> }
             { postsStore.loading && <LoadingStyledComponent/> }
             { postsStore.hasErr && <MessageComponent type="error">Email ou senha incorretos.</MessageComponent> }
 

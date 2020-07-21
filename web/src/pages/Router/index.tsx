@@ -34,9 +34,9 @@ export default function RouterComponent() {
 
     return (
         <BrowserRouter>
-            <Route exact path="/login" component={LoginPage} />
-            <PrivateRoute exact path="/landing" token={postsStore.access_token} component={LandingPage} />
-            <PrivateRoute exact path="/landing/create" token={postsStore.access_token} component={CreatePage} />
+            <Route path="/login" component={LoginPage} />
+            <PrivateRoute exact path="/" token={postsStore.access_token} component={LandingPage} />
+            <PrivateRoute path="/create" token={postsStore.access_token} component={CreatePage} />
 
         </BrowserRouter>
     )

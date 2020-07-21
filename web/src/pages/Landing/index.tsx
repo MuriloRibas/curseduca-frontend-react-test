@@ -40,7 +40,7 @@ export default function LandingPage() {
                 posts={postsStore.posts}
                 filter={postsStore.filter}
            />
-           <Link to="/landing/create">
+           <Link to="/create">
                 <ButtonFloat icon={faPlusSquare} /> 
            </Link>
         </>
